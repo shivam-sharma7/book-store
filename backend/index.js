@@ -35,10 +35,7 @@ app.get('/', (req, res) => {
 app.use('/books', booksRoutes);
 
 // Database connection
- await mongoose.connect(process.env.DB, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+mongoose.connect(process.env.DB)
 .then(() => {
 console.log('App has Connected with Database')
 app.listen(PORT, () => {
