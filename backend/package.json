@@ -1,15 +1,17 @@
 {
-  "name": "backend",
+  "name": "book-store-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a book store api",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "book-store-api"
+  ],
+  "author": "Shivam Sharma",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",

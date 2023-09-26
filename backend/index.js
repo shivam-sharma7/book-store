@@ -3,9 +3,9 @@ import { config } from 'dotenv';
 import mongoose from 'mongoose';
 import booksRoutes from './routes/booksRoutes.js';
 import cors from 'cors';
-config();
-const app = express();
-const PORT = process.env.PORT;
+config({silent: true})
+const app = express()
+const PORT = process.env.PORT || 5000
 
 // Middleware for parsing request body
 app.use(express.json());
@@ -35,14 +35,13 @@ app.get('/', (req, res) => {
 app.use('/books', booksRoutes);
 
 // Database connection
-mongoose.connect(process.env.DB)
-.then(() => {
-console.log('App has Connected with Database')
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
-})
-.catch((error) => {
+try {
+  await mongoose.connect(process.env.DB);
+  console.log('App has Connected with Database');
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+} catch (error) {
   console.log(error);
-})
+}
  
