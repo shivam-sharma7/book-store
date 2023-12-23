@@ -39,3 +39,9 @@ run dev cmd
 ```
 npm run dev
 ```
+
+## How to create new book?
+The following image have some visual guide to create new books. You can see how your data will looks like.
+
+![image](https://github.com/shivam-sharma7/book-store/assets/91419219/6b787406-11e3-4e04-8fd4-cac50218f8c4)
+

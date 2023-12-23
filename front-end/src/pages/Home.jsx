@@ -27,7 +27,8 @@ const Home = () => {
   return (
     <div className="px-4">
       <div className="flex justify-between items-center">
-        <h1 className="font-semibold text-green-500 text-3xl my-7">Book List</h1>
+        <h1 className="font-semibold text-sky-800 text-3xl my-7">Book List</h1>
+        <h1 className="font-semibold text-sky-800 text-3xl my-7">Book Store</h1>
         <Link to="/books/create">
           <MdOutlineAddBox className="text-3xl text-sky-800 hover:bg-green-500 " />
         </Link>
