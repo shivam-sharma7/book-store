@@ -15,7 +15,7 @@ git clone git@github.com:shivam-sharma7/book-store.git
 ````
 and navigate to directory
 ```bash
-cd book-store
+cd backend
 ```
 install dependencies
 ```bash
@@ -26,10 +26,10 @@ run start command
 npm start
 ```
 
-## Run front-end
+## Run frontend
 Navigate to front-end directory
 ```bash
-cd front-end
+cd frontend
 ```
 install dependencies
 ```bash
