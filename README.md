@@ -1,6 +1,5 @@
 ## Book store App
-Developed this full stack app using (MERN stack). This is allow to user can create book, get book, update book, and delete as well. This is consuming basic CRUD api and some input validation.
-
+Book store is full stack app, build with using (MERN stack). This is allow to authors can create book, get book, update book, and delete as well. This is consuming All CRUD REST API with some input validation.
 
 ## Run backend
 >You need to cretae a .env file and set following string then you will be able to perfrom all CRUD operation and store in DB.
@@ -13,7 +12,7 @@ Clone the project
 ```bash
 git clone git@github.com:shivam-sharma7/book-store.git
 ````
-and navigate to directory
+Navigate to backend directory
 ```bash
 cd backend
 ```
@@ -27,7 +26,7 @@ npm start
 ```
 
 ## Run frontend
-Navigate to front-end directory
+Navigate to frontend directory
 ```bash
 cd frontend
 ```
