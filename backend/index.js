@@ -2,7 +2,7 @@ import express from 'express'
 import { config } from 'dotenv';
 import booksRoutes from './routes/booksRoutes.js';
 import cors from 'cors';
-import database from './db.js';
+import database from './config/db.js';
 config({silent: true})
 const app = express()
 const PORT = process.env.PORT || 5000
