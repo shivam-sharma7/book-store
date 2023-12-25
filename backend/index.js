@@ -3,6 +3,7 @@ import { config } from 'dotenv';
 import booksRoutes from './routes/booksRoutes.js';
 import cors from 'cors';
 import database from './config/db.js';
+import { notFound, errorHandler } from './middleware/middlewareError.js';
 config({silent: true})
 const app = express()
 const PORT = process.env.PORT || 5000
@@ -33,6 +34,10 @@ app.get('/', (req, res) => {
 });
 
 app.use('/books', booksRoutes);
+
+app.use(notFound);
+app.use(errorHandler);
+
 
 // Database connection
    app.listen(PORT, () => {
