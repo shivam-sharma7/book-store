@@ -39,6 +39,12 @@ run dev cmd
 npm run dev
 ```
 
+or
+
+```
+docker compose up
+```
+
 ## How to create new book?
 The following image have some visual guide to create new books. You can see how your data will looks like.
 
