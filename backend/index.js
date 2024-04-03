@@ -2,46 +2,37 @@ import express from 'express'
 import { config } from 'dotenv';
 import booksRoutes from './routes/booksRoutes.js';
 import cors from 'cors';
+import { fileURLToPath } from 'url';
+import path, { dirname } from 'path';
 import database from './config/db.js';
 import { notFound, errorHandler } from './middleware/middlewareError.js';
 config({silent: true})
 const app = express()
 const PORT = process.env.PORT || 5000
-
-// Middleware for parsing request body
-app.use(express.json());
-
-/*
- * Middleware handling CORS Policy
- * Options 1: Allow all origins with default of cors(*)
- */
-app.use(cors())
 database()
-/*
- * Middleware handling CORS Policy
- * Options 2: Allow custom origin
- */
 
-// app.use(cors({
-//   origin: 'http://localhost:3000',
-//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//   allowedHeaders: ['Content-Type', 'Authorization'],
-// }))
+// Middleware  
+app.use(express.json());
+app.use(express.urlencoded({extended: true}))
+ 
+app.use(cors({
+   origin: process.env.ORIGIN,
+   methods: ['GET', 'POST', 'PUT', 'DELETE'],
+ 
+ }))
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
-app.get('/', (req, res) => {  
-   return res.status(200).send('Welcome to the Bookstore APP.');
-});
+app.use(express.static(path.join(__dirname, "./../frontend/dist")))
 
 app.use('/books', booksRoutes);
 
-app.use(notFound);
+app.use(notFound)
 app.use(errorHandler);
 
-
-// Database connection
-   app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-  });
+app.listen(PORT, () => {
+   console.log(`Server is running on port ${PORT}`);
+});
  
  

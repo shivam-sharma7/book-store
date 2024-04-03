@@ -7,8 +7,7 @@ export const createBook =  async (req, res) => {
         !req.body.author ||
         !req.body.publishYear
       ) {
-        return res.status(400)
-        .send({message: 'Send all required fields: title, author, publishYear'});
+      return res.status(400).send({message: 'Send all required fields'});
       }
       const newBook = {
         title: req.body.title,
@@ -17,7 +16,7 @@ export const createBook =  async (req, res) => {
       };
 
       const book = await Book.create(newBook);
-
+      book.save()
       return res.status(201).send({book, message: 'Book created successfully'});
     
     } catch (error) {
@@ -79,7 +78,7 @@ export const getBookById = async (req, res) => {
     }
  };
 
-    export const deleteBook = async (req, res) => {
+  export const deleteBook = async (req, res) => {
   try {
     const book = await Book.findByIdAndDelete(req.params.id);
     if (!book) {
